@@ -1,0 +1,35 @@
+<div class="list-container">
+  <h2>Lista de Pacientes</h2>
+
+  <div *ngIf="mensajeExito" class="mensaje-exito">{{ mensajeExito }}</div>
+  <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
+
+  <table *ngIf="pacientes.length > 0" class="tabla-pacientes">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Fecha Nac.</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paciente of pacientes">
+        <td>{{ paciente.id }}</td>
+        <td>{{ paciente.nombre }}</td>
+        <td>{{ paciente.apellido }}</td>
+        <td>{{ paciente.fechaNacimiento | date:'shortDate' }}</td>
+        <td>{{ paciente.telefono }}</td>
+        <td>{{ paciente.email }}</td>
+        <td>
+          <button (click)="eliminarPaciente(paciente.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="pacientes.length === 0">No hay pacientes registrados.</p>
+</div>

@@ -1,0 +1,41 @@
+<div class="form-container">
+  <h2>Alta de Paciente</h2>
+
+  <div *ngIf="mensajeExito" class="mensaje-exito">{{ mensajeExito }}</div>
+  <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
+
+  <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text" />
+    <div *ngIf="pacienteForm.get('nombre')?.invalid && pacienteForm.get('nombre')?.touched" class="error">
+      El nombre es obligatorio.
+    </div>
+
+    <label for="apellido">Apellido:</label>
+    <input id="apellido" formControlName="apellido" type="text" />
+    <div *ngIf="pacienteForm.get('apellido')?.invalid && pacienteForm.get('apellido')?.touched" class="error">
+      El apellido es obligatorio.
+    </div>
+
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" />
+    <div *ngIf="pacienteForm.get('fechaNacimiento')?.invalid && pacienteForm.get('fechaNacimiento')?.touched" class="error">
+      La fecha de nacimiento es obligatoria.
+    </div>
+
+    <label for="telefono">Teléfono:</label>
+    <input id="telefono" formControlName="telefono" type="tel" />
+    <div *ngIf="pacienteForm.get('telefono')?.invalid && pacienteForm.get('telefono')?.touched" class="error">
+      El teléfono es obligatorio.
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+    <div *ngIf="pacienteForm.get('email')?.invalid && pacienteForm.get('email')?.touched" class="error">
+      Ingresá un email válido.
+    </div>
+
+    <button type="submit" [disabled]="pacienteForm.invalid">Crear Paciente</button>
+  </form>
+</div>
