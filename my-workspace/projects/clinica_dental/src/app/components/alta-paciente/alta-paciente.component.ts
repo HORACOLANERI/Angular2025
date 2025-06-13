@@ -42,7 +42,7 @@ export class AltaPacienteComponent {
         }
       });
     } else {
-      this.mensajeError = 'Por favor completá todos los campos correctamente.';
+      this.mensajeError = 'Por favor completa todos los campos correctamente.';
       this.mensajeExito = '';
     }
   }

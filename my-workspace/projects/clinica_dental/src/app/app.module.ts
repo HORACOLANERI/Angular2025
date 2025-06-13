@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AltaPacienteComponent } from './components/alta-paciente/alta-paciente.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
+import { PacienteService } from './service/paciente.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ListaPacientesComponent } from './components/lista-pacientes/lista-paci
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [PacienteService],
+  bootstrap: [AppComponent,AltaPacienteComponent, ListaPacientesComponent]
 })
 export class AppModule {}
